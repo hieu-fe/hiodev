@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngay 3</title>
+
+    <!-- CSS -->
+    <style>
+        h1{
+            font-size: 30px;
+            color: chocolate;
+        }
+        #txt1{
+            text-align: center;
+            font-size: 30px;
+            color: red;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test JS trong console ==></h1>
+    <p id="txt">console ===></p>
+    <p id="txt2">...</p>
+    <p id="daychan">Cac so chan trong mang la</p>
+
+    <!-- JS -->
+    <script>
+        function ar(a,b, ...data){
+            console.log("day la:" + a,b, data);
+        }
+        ar(1,2,3,4,5,6);
+
+        let a = [1,2,3,4,5,6,7,8,9];
+        let dem =0;
+        for(let y = 0; y<a.length; y++){
+            dem ++;
+        }
+        console.log(`mang a = [1,2,3,4,5,6,7,8,9] co ${dem} ky tu`);
+
+        let person = {
+            name5:"Nguyen Hieu",
+            age5:28,
+            sayHi: function(){
+                document.getElementById('txt2').innerHTML = "Name: " + this.name5 +
+                 " - Age: " + this.age5;
+                console.log(`${this.name5} năm nay là: ${this.age5} tuổi`);
+            }
+        };
+        person.sayHi();
+        
+
+        //- Viết các hàm tính tổng, hiệu, tích, và thương của hai số.
+        function pheptinh(a,b){
+            console.log("Tong: " + (a + b));
+            console.log("Hieu: " + (a - b));
+            console.log("Tich: " + (a * b));
+        }
+        function chia(a,b){
+            if (b===0) { return "ko the chia cho b = 0";
+            return;}
+        console.log("Thuong: " + (a / b)); }
+        pheptinh(3,5);
+        chia(10,2);
+
+
+        //- Tạo đối tượng mô tả thông tin sinh viên (tên, tuổi, điểm) và viết hàm để in thông tin sinh viên.
+        const sv = {
+            ten: "Nguyen Duc Hieu",
+            tuoi: 20,
+            diem: 1,
+        };
+        function thongtin(student){
+            document.getElementById("txt").innerHTML = `ten sv la: ${student.ten} 
+            - tuoi sv la: ${student.tuoi} tuoi - diem cua sv la: ${student.diem}`
+            console.log(`Ten sv: ${student.ten} - Tuoi: ${student.tuoi} tuoi - Diem cua sv: ${student.diem}`);
+        }
+        thongtin(sv);
+
+
+        //- Viết hàm sử dụng rest parameters để nhận vào nhiều số và trả về tổng của chúng.
+        function sum(...arr){
+            let tong_rp = 0;
+            for(let i=0; i<arr.length; i++){
+                let giaTri = arr[i];
+                tong_rp += giaTri;
+            }
+            return(tong_rp);
+        }
+        let mang =[5,10,15,20];
+        console.log("Rest parameters tinh tong 1->5 = " + sum(mang));
+
+
+        //test filter, find, reduce
+        let mang3 = [2,3,4,5,6,7,8,9,10,11];
+        let kq = mang3.filter(function(giaTri1, viTri1, mangBanDau1){
+            if (giaTri1 % 2 !==0){
+                return true;
+            } else {
+                return false;
+            }
+        });
+        let tk = mang3.find(function(giaTri2, viTri2, mangBanDau2){
+            if (giaTri2 % 2 !==0 && giaTri2 >5){
+                return true;
+            }else {
+                return false;
+            }
+        });
+        let tong1 = mang3.reduce(function(t, giaTri3, viTri3, mangBanDau3){
+            t += giaTri3;
+            return t;   
+        } , 0);
+        console.log(`Nhung so le trong mang la: ${kq}`);
+        console.log(`So le dau tien lon hon 5 trong mang la: ${tk}`);
+        console.log(`Tong cua mang la: ${tong1} `);
+
+
+
+        //- Viết hàm nhận vào một mảng số nguyên và trả về tổng của các số trong mảng. 
+        function sum(n){
+            let tong = 0;
+            for (let i =0; i<n.length; i++){
+                let a = n[i];
+                tong += a;
+            }
+            return tong;
+        }
+        let mang1 = [0,1,2,3,4,5,6];
+        console.log("Tong mang la: " + sum(mang1));
+
+
+        //- Sử dụng map để tạo ra một mảng mới từ mảng ban đầu, trong đó mỗi giá trị là bình phương của giá trị gốc.
+        function bp(newMap){
+            let mangmoi = [];
+            for (let i=0; i<newMap.length; i++){
+                let b = newMap[i];
+                let binhphuong = b * b;
+                mangmoi.push(binhphuong);
+            }
+            return(mangmoi);
+        }
+        let mang2 = [1,2,3,4];
+        console.log("Mang cu la: [1,2,3,4] --> Mang binh phuong la: [" +bp(mang2)+ "]");
+
+
+        //- Sử dụng filter để lọc ra các số chẵn trong một mảng.
+        let mang4 = [1,2,3,4,5,6,7,8,9,10,11,12];
+        let sochan = mang4.filter(function(giaTri, viTri, mangBanDau){
+            if (giaTri % 2 === 0){
+                return true;
+            }else{
+                return false;
+            }
+        });
+        setTimeout(function(){
+        document.getElementById('daychan').innerHTML = "Cac so chan trong mang la: " + sochan;
+        }, 3000);
+    </script>
+</body>
+</html>
