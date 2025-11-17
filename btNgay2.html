@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Function</title>
+  <title>Ngay 2</title>
   <style>
     h2{
     	color:blueviolet;
@@ -19,7 +19,7 @@
     	padding: 10px;
     	gap: 20px;
 	}
-	.myText{
+	.text_all{
     	color:black;
     	height: fit-content;
     	width: fit-content;
@@ -27,48 +27,38 @@
     	text-align: center;
     	font-weight: 700;
 	}
-    #text2{
-    	color:green;
-        font-size: 20px;
-    }
-	#input1{
+	.input_all{
     	width: 100px;
     	height: 30px;
     	border-radius: 4px;
     	border: 2px solid black;
 	}
-    #input2{
-    width: 100px;
-    	height: 30px;
-    	border-radius: 4px;
-    	border: 2px solid black;
-    }
-	.myButton{
+	.button_all{
     	height: auto;
     	background-color: aqua;
     	color: black;
     	border-radius: 10%;
         padding:7px;
 	}
-	.myButton:hover{
+	.button_all:hover{
     	transform: translateY(-5px);
     	box-shadow: 0 2px 2px black;
 	}
   </style>
 </head>
 <body>
-    <h2>Kiểm tra số nguyên tố</h2>
+    <h2>Kiểm tra số nguyên tố :</h2>
     <div class="box">
         <p id="text_1" class="text_all">Nhập số để kiểm tra :</p>
-        <input type="text" id="input_1" class="input_all" placeholder="nhap_so">
+        <input type="text" id="input_1" class="input_all" placeholder="Nhap_so">
         <button id="button_1" class="button_all">Kiểm tra</button>
     </div>
     <div class="box">
         <p id="" class="text_all">Nhập số :</p>
-        <input type="text" id="input_2" class="input_all" placeholder="nhap_so">
+        <input type="text" id="input_2" class="input_all" placeholder="Nhap_so">
         <button id="button_2" class="button_all">In ra</button>
     </div>
-    <h2 id="h2_second">Dãy số in ra ở đây</h2>
+    <h2 id="h2_second">In ra dãy số :</h2>
     <p id="text_2" class="text_all"></p>
     <script>
         const button1 = document.getElementById('button_1');
