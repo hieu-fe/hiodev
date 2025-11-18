@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngay 4</title>
+
+    <!-- CSS -->
+    <style>
+        h1{
+            font-size: 30px;
+            color: chocolate;
+        }
+        p{
+            font-size: 20px;
+            color: #333333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test JS trong console ==></h1>
+    <p id="txt">Tong mang la: </p>
+    <p id="txt2">So le lon hon 5 dau tien la:</p>
+    <p id="txt3">Viet hoa ki tu: nguyen duc hieu</p>
+    <p id="txt4">Mang ['html' , 'javascript' , 'css' ] co lan luot: </p>
+    <p id="txt5">Tuoi la: </p>
+    <p id="daychan">Cac so chan trong mang la</p>
+
+    <p id="b1">nguyen duc hieu => </p>
+    <p id="b3">Thong tin sinh vien</p>
+
+    <!-- JS -->
+    <script>
+        //bt filter, find, reduce
+        let mang = [1,2,3,4,5,6,7,8,9,10,11,12];
+        let chan = mang.filter(function(a,b,c){
+            if (a % 2 === 0){
+                return true;
+            }else{
+                return false;
+            }
+        });
+        let tk = mang.find(function(gt,vt,mangbd){
+            if (gt > 5 && gt%4===0){
+                return true;
+            }else{
+                return false;
+            }
+        });
+        let tong = mang.reduce(function(t,gtri,vtri,mangbdau){
+            t += gtri;
+            return t;
+        },0);
+
+        //bt map 
+        function tentuoi(mangnew2){
+            return mangnew2.map(item => item.age);
+        }
+        let ten= [
+            {name: "Hieu", age:"20"},
+            {name: "Minh" , age:"25"},
+            {name: "Hoang", age:"29"}
+        ];
+        let kq2 = tentuoi(ten);
+
+
+        function viethoa(mangmoi){
+            return mangmoi.map(item => item.toUpperCase());}
+        let name1 = ["nguyen","duc","hieu"];
+        let kq = viethoa(name1);
+
+
+        function kitu(mangnew){
+            return mangnew.map(item2 => item2.length);}
+        let demkitu = ["html" , "javascript" , "css"];
+        let kq1 = kitu(demkitu);
+        let chuoi = "nguyen duc hieu";
+        let newname = chuoi.replace("duc", "minh");
+
+        setTimeout(function(){
+            document.getElementById('txt').innerHTML = "Tong mang la: " + tong;
+            document.getElementById('txt2').innerHTML = "So le lon hon 5 dau tien la: " + tk;
+            console.log(`So chia het cho 4 va lon hon 5 la: ${tk}`);
+        },1000 );
+        setTimeout(function(){
+            document.getElementById('txt3').innerHTML = "Viet hoa ki tu: " + kq;            
+            document.getElementById('txt4').innerHTML = "Mang ['html' , 'javascript' , 'css' ] co lan luot: " + kq1 + " ki tu";
+        },2000 );
+        setTimeout(function(){
+            document.getElementById('txt5').innerHTML = "Tuoi la: " + kq2 + " tuoi";
+            document.getElementById('daychan').innerHTML = "Cac so chan trong mang la " + chan;
+            console.log(`Mang chan la: ${chan}`);
+        },3000 );
+        setTimeout(function(){
+            console.log("chu hieu nam o so thu tu: "+ chuoi.indexOf("hieu"));
+            console.log("ky tu so 3 la: " + chuoi.charAt(3));
+            console.log("7->13 la: " + chuoi.slice(7,13));
+            console.log("ten sau khi update: " + newname);
+            console.log("test substring: " + chuoi.substring(7,10));
+        },3500 );
+
+
+        //- Viết hàm đảo ngược chuỗi.
+        function daonguoc(str){
+            return str.split('').reverse().join('');
+        }
+        let kq3 = daonguoc(chuoi);
+        document.getElementById('b1').innerHTML = "nguyen duc hieu => " + kq3;
+
+        //- Sử dụng template literals để hiển thị thông tin sinh viên.
+        let ten1 = "Hieu";
+        let tuoi1 = 21;
+        let diachi = "Ha Noi"
+        setTimeout(function(){
+        document.getElementById('b3').innerHTML = (`Ho va ten: ${ten1} - Tuoi: ${tuoi1} - Dia chi: TP.${diachi}`);
+        },4000);
+    </script>
+</body>
+</html>
